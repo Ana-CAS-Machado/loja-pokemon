@@ -9,7 +9,7 @@ import { ItemsType } from 'src/app/types/Items.type';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-  public equipamento:  ItemsType | null = null;
+  public mento:  ItemsType | null = null;
 
   constructor(
     private _route: ActivatedRoute,
@@ -20,8 +20,8 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     const id = this._route.snapshot.paramMap.get('id');
     if (id) {
-      this._ItemsService.getEquipamento(id).subscribe({
-        next: (res) => (this.equipamento = res),
+      this._ItemsService.getItem(id).subscribe({
+        next: (res) => (this.mento = res),
         error: (_) => this._router.navigate(['']),
       });
     }

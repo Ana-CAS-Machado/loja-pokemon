@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { ItemsType } from '../types/Items.type';
@@ -8,19 +8,18 @@ import { ItemsFilterType } from '../types/Itemsfilter.type';
   providedIn: 'root',
 })
 export class ItemsService {
-  private readonly _URL = '../assets/items.json';
+  private readonly _URL = '../assets/items.json'; 
 
   constructor(private _http: HttpClient) {}
 
   public getItems(
     filtroItems?: ItemsFilterType
   ): Observable<ItemsType[]> {
-    return this._http.get<ItemsType[]>(`${this._URL}/items.json`).pipe(
+    return this._http.get<ItemsType[]>(this._URL).pipe(
       map((items: ItemsType[]) => {
         if (!filtroItems) {
           return items;
         }
-        // Filtra os itens localmente com base em filtroItems
         return items.filter(item => {
           return Object.entries(filtroItems).every(([key, value]) => {
             const itemValue = String(item[key as keyof ItemsType] || '').trim();
@@ -31,7 +30,7 @@ export class ItemsService {
     );
   }
 
-  public getEquipamento(id: string): Observable<ItemsType> {
+  public getItem(id: string): Observable<ItemsType> {
     return this.getItems().pipe(
       map((items: ItemsType[]) => {
         const item = items.find(item => item.id === id);
