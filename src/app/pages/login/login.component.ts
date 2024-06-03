@@ -22,8 +22,8 @@ export class LoginComponent {
     }
     const usuarioLogado = this._authService.login(this.username, this.password);
     if (usuarioLogado) {
-      alert('Seja Bem-Vindo(a) a Mandalorian Store');
-      this._router.navigate(['equipments']);
+      alert('Seja Bem-Vindo(a) a Loja Pokemon');
+      this._router.navigate(['Item']);
     } else {
       alert('Usuário ou senha inválido');
     }
