@@ -8,7 +8,7 @@ import { authsoldier } from './soldier/autg.soldier';
 
 const routes: Routes = [
   {
-    path: 'equipments',
+    path: 'items.json',
     component: HomeComponent,
     canActivate: [authsoldier],
   },
@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: '',
-    redirectTo: 'equipments',
+    redirectTo: 'items.json',
     pathMatch: 'full',
   },
   {

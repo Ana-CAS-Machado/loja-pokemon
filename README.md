@@ -1,27 +1,45 @@
-# LojaPokemon
+# Loja de Itens Pokémon - Projeto Final Santander Coders
+Este é o repositório do projeto final do Santander Coders, desenvolvido em Angular pela Ada Tech. Neste projeto, criamos uma loja virtual que vende itens relacionados ao mundo Pokémon. Os usuários podem navegar pelos produtos, visualizar detalhes, adicionar itens ao carrinho e finalizar a compra.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+## Funcionalidades
+* Catálogo de Itens:
+Os usuários podem visualizar uma lista de itens disponíveis para compra.
 
-## Development server
+Cada item exibe uma imagem, nome, descrição e preço.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Os itens são categorizados por tipo (por exemplo, Pokébolas, Poções, Pedras Evolutivas).
 
-## Code scaffolding
+## Detalhes do Item:
+Ao clicar em um item, os usuários podem ver informações detalhadas, como efeito, raridade e outros atributos.
+Os detalhes também incluem uma seção de avaliações e comentários de outros usuários.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Tecnologias Utilizadas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Angular: Framework JavaScript para construção de interfaces de usuário.
 
-## Running unit tests
+HTML/CSS: Estrutura e estilização das páginas.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+TypeScript: Linguagem de programação para desenvolvimento Angular.
 
-## Running end-to-end tests
+Firebase: Armazenamento de dados (itens, avaliações, etc.).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+APIs Pokémon: Integração com APIs para obter informações sobre os itens.
 
-## Further help
+## Como Executar o Projeto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Clone este repositório para o seu ambiente local.
+
+Instale as dependências com npm install.
+
+Execute o servidor de desenvolvimento com ng serve.
+
+Acesse a aplicação em http://localhost:4200.
+
+# Contribuições
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues, enviar pull requests ou sugerir melhorias.
+
+# Licença
+Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
+
+Espero que este README seja útil para o seu projeto! Se precisar de mais informações ou tiver alguma dúvida, fique à vontade para entrar em contato.

@@ -1,5 +1,6 @@
 export type ItemsType = {
   id: string;
+  Type: string;
   name: string;
   description: string;
   image: string;
