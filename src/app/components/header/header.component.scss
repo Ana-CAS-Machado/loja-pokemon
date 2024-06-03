@@ -149,11 +149,11 @@ $m-02: #cec654;
 }
 
 * {
-  // margin: 0;
-  // padding: 0;
-  // list-style: none;
-  // border: 0;
-  // outline: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 0;
+  outline: 0;
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
   color: inherit;
@@ -232,6 +232,7 @@ body {
   position: relative;
   padding: 0 40px;
   background-image: $gradient-01;
+  margin-bottom: 6rem;
   
 
   @include sm {
@@ -331,7 +332,7 @@ body {
      right: 0;
      max-width: 600px;
      width: 60%;
-     height: 600px;
+     height: 440px;
      transform: translatey(100px);
      position: absolute;
      overflow: hidden;
