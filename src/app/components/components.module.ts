@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EquipmentComponent } from './equipment/EquipmentComponent';
-import { EquipmentListComponent } from './equipment-list/equipment-list.component';
+import { ItemsComponent } from './Item/ItemsComponent';
+import { ItemsListComponent } from './Item-list/item-list.component';
 import { FilterComponent } from './filter/filter.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,8 +15,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 @NgModule({
   declarations: [
-    EquipmentComponent,
-    EquipmentListComponent,
+    ItemsComponent,
+    ItemsListComponent,
     FilterComponent,
     FooterComponent,
     HeaderComponent,
@@ -33,7 +33,7 @@ import { DropdownModule } from 'primeng/dropdown';
     DropdownModule,
   ],
   exports: [
-    EquipmentListComponent,
+    ItemsListComponent,
     FilterComponent,
     FooterComponent,
     HeaderComponent,

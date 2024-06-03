@@ -1,0 +1,37 @@
+<p-card [header]="items.name" styleClass="items">
+  <ng-template pTemplate="header">
+    <img
+      class="items__image"
+      [alt]="items.name"
+      [src]="items.image"
+    />
+    <p-chip
+      [label]="items.isAvailable ? 'Disponível' : 'Indisponível'"
+      styleClass="items__tag"
+    ></p-chip>
+    <i
+      *ngIf="items.isFavorite"
+      class="pi pi-heart-fill"
+      (click)="favoriteHandler()"
+    ></i>
+    <i
+      *ngIf="!items.isFavorite"
+      class="pi pi-heart"
+      (click)="favoriteHandler()"
+    ></i>
+  </ng-template>
+  <p-rating
+    [(ngModel)]="items.rating"
+    [cancel]="false"
+    [readonly]="true"
+  ></p-rating>
+  <ng-template pTemplate="footer">
+    <span class="items__price">{{ items.price | currency }}</span>
+    <p-button
+      class="items__details"
+      label="Detalhes"
+      (click)="clickHandler()"
+      [disabled]="!items.isAvailable"
+    ></p-button>
+  </ng-template>
+</p-card>

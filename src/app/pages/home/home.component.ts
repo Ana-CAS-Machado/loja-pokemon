@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  public listaEquipamentos: ItemsType[] = [];
+  public listaItems: ItemsType[] = [];
 
   constructor(
     private _itemsService: ItemsService,
@@ -24,21 +24,21 @@ export class HomeComponent {
   public verificarSeUsuarioEstaLogado(): void {
     const usuarioLogado = this._authService.usuarioEstaAutenticado();
     if (usuarioLogado) {
-      this.filtrarEquipamentosPorNome();
+      this.filtrarItemsPorNome();
     } else {
       this._router.navigate(['login']);
     }
   }
 
-  public filtrarEquipamentosPorNome(filtro?: ItemsFilterType) {
-    this._itemsService.getListaEquipamento(filtro).subscribe({
+  public filtrarItemsPorNome(filtro?: ItemsFilterType) {
+    this._itemsService.getItems(filtro).subscribe({
       next: (resp) => {
         let listaFavoritos: string[] = [];
         const favoritosString = localStorage.getItem('favoritos');
         if (favoritosString) {
           listaFavoritos = JSON.parse(favoritosString);
         }
-        this.listaEquipamentos = resp.map((item) => {
+        this.listaItems = resp.map((item) => {
           item.isFavorite = !!listaFavoritos.find((fav) => fav === item.id);
           return item;
         });
@@ -54,7 +54,7 @@ export class HomeComponent {
     });
   }
 
-  public getDetalhesEquipamento(id: string) {
+  public getDetalhesItem(id: string) {
     this._router.navigate([`/details/${id}`]);
   }
 }

@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { ItemsType } from '../types/Items.type';
 import { ItemsFilterType } from '../types/Itemsfilter.type';
 
@@ -8,29 +8,38 @@ import { ItemsFilterType } from '../types/Itemsfilter.type';
   providedIn: 'root',
 })
 export class ItemsService {
-  private _URL = '../assets/item.json';
+  private readonly _URL = '../assets/items.json';
 
   constructor(private _http: HttpClient) {}
 
-  public getListaEquipamento(
+  public getItems(
     filtroItems?: ItemsFilterType
   ): Observable<ItemsType[]> {
-    let params = new HttpParams();
-    if (filtroItems) {
-      Object.entries(filtroItems).map(([key, value]) => {
-        if (String(value).trim().length === 0) {
-          return;
+    return this._http.get<ItemsType[]>(`${this._URL}/items.json`).pipe(
+      map((items: ItemsType[]) => {
+        if (!filtroItems) {
+          return items;
         }
-        params = params.set(String(key), value);
-      });
-    }
-
-    return this._http.get<ItemsType[]>(`${this._URL}/equipments`, {
-      params,
-    });
+        // Filtra os itens localmente com base em filtroItems
+        return items.filter(item => {
+          return Object.entries(filtroItems).every(([key, value]) => {
+            const itemValue = String(item[key as keyof ItemsType] || '').trim();
+            return itemValue.includes(String(value).trim());
+          });
+        });
+      })
+    );
   }
 
   public getEquipamento(id: string): Observable<ItemsType> {
-    return this._http.get<ItemsType>(`${this._URL}/equipments/${id}`);
+    return this.getItems().pipe(
+      map((items: ItemsType[]) => {
+        const item = items.find(item => item.id === id);
+        if (!item) {
+          throw new Error('Item not found');
+        }
+        return item;
+      })
+    );
   }
 }

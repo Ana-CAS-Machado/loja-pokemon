@@ -1,0 +1,7 @@
+<div class="ItemList">
+  <app-items
+    *ngFor="let Item of listaitens"
+    [items]="Item"
+    (verDetalhes)="verDetalhes($event)"
+  ></app-items>
+</div>

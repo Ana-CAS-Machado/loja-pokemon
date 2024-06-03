@@ -7,8 +7,8 @@ export class AuthService {
   private isAuthenticated = false;
   private authSecretKey = 'token_usuario';
 
-  private rootUser = 'turma1122';
-  private rootPassword = 'turma1122';
+  private rootUser = 'Loja Pokemon';
+  private rootPassword = '123deoliveira4';
 
   constructor() {
     this.isAuthenticated = !!localStorage.getItem(this.authSecretKey);

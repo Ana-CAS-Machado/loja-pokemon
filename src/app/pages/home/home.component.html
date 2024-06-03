@@ -1,7 +1,8 @@
+<!-- home.component.html -->
 <section class="Home">
-  <app-filter (filtroEmitter)="filtrarEquipamentosPorNome($event)"></app-filter>
-  <app-equipment-list
-    [listaEquipamentos]="listaEquipamentos"
-    (verDetalhesEquipamento)="getDetalhesEquipamento($event)"
-  ></app-equipment-list>
+  <app-filter (filtroEmitter)="filtrarItemsPorNome($event)"></app-filter>
+  <app-Item-list
+    [listaitens]="listaItems"
+    (verDetalhesItem)="getDetalhesItem($event)"
+  ></app-Item-list>
 </section>

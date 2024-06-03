@@ -8,12 +8,7 @@ import { LoginModule } from '../login/login.module';
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [
-    CommonModule,
-    ComponentsModule,
-    HttpClientModule,
-    LoginModule,
-    ],
+  imports: [CommonModule, ComponentsModule, HttpClientModule, LoginModule],
   exports: [HomeComponent],
   providers: [HomeService],
 })

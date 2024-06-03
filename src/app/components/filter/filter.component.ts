@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { availableOptionsConstants } from 'src/app/constants/available-options.constants';
 import { sortOptionsConstants } from 'src/app/constants/sort-options.constants';
-import { EquipmentFilterType } from 'src/app/types/equipment-filter.type';
+import { ItemsFilterType } from '../../types/Itemsfilter.type';
 
 @Component({
   selector: 'app-filter',
@@ -16,25 +16,25 @@ export class FilterComponent {
   public availableOptions = availableOptionsConstants;
   public sortOptions = sortOptionsConstants;
 
-  @Output() filtroEmitter: EventEmitter<EquipmentFilterType> =
-    new EventEmitter<EquipmentFilterType>();
+  @Output() filtroEmitter: EventEmitter<ItemsFilterType> =
+    new EventEmitter<ItemsFilterType>();
 
-  public buscarEquipamentoPorNome() {
-    const filtroEquipamento: EquipmentFilterType = {
+  public buscaritens() {
+    const filtroitens: ItemsFilterType = {
       search: this.filtro,
       sort: this.sortOrder,
       orderBy: 'name',
     };
 
     if (this.isAvailable.trim().length > 0) {
-      filtroEquipamento.isAvailable = this.isAvailable === 'true';
+      filtroitens.isAvailable = this.isAvailable === 'true';
     }
 
-    this.filtroEmitter.emit(filtroEquipamento);
+    this.filtroEmitter.emit(filtroitens);
+  }
+  public limparFiltro() {
+    this.filtro = '';
+    //this.filtroEmitter.emit(this.filtro);
   }
 
-  public limparFiltro() {
-    // this.filtro = '';
-    // this.filtroEmitter.emit(this.filtro);
-  }
 }
