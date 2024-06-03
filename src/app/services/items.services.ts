@@ -8,7 +8,7 @@ import { ItemsFilterType } from '../types/Itemsfilter.type';
   providedIn: 'root',
 })
 export class ItemsService {
-  private readonly _URL = '../assets/items.json'; 
+  private readonly _URL = 'assets/items.json';
 
   constructor(private _http: HttpClient) {}
 
