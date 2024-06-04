@@ -62,3 +62,4 @@ export class HomeComponent {
 window.onload = function() {
   alert('Atenção: Nem todos os itens possuem imagens no momento. Estamos trabalhando para atualizar isso o mais rápido possível.');
 };
+

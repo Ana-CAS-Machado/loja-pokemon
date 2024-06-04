@@ -33,7 +33,7 @@ export class FilterComponent {
     this.filtroEmitter.emit(filtroitens);
   }
   public limparFiltro() {
-    this.filtro = '';
+    this.filtro = ''; 
     //this.filtroEmitter.emit(this.filtro);
   }
 
